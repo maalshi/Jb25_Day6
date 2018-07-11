@@ -3,32 +3,24 @@ package marks;
 public class Student {
 	String name;
 	String surname;
-	Mark [] mark;
-	int average;
-	int generalAverage;
+	int [] markArray;
+		
 	
-	public int getGeneralAverage() {
-		return generalAverage;
+	public int GetAverage() {
+	       int sum = 0;
+	       for(int i = 0; i<markArray.length; i++)
+	        {
+	           sum = markArray[i] + sum;
+	        }
+		return sum / markArray.length;
+		}
+
+	public int[] getMarkArray() {
+		return markArray;
 	}
 
-	public void setGeneralAverage(int generalAverage) {
-		this.generalAverage = generalAverage;
-	}
-
-	public int getAverage() {
-		return average;
-	}
-
-	public void setAverage(int average) {
-		this.average = average;
-	}
-
-	public Mark[] getMark() {
-		return mark;
-	}
-
-	public void setMark(Mark[] mark) {
-		this.mark = mark;
+	public void setMarkArray(int[] markAarray) {
+		this.markArray = markAarray;
 	}
 
 	public String getSurname() {
@@ -47,11 +39,16 @@ public class Student {
 		this.name = name;
 	}
 
-	public Student(String name, String surname) {
+	public Student(String name, String surname, int[]markArray) {
 		this.name = name;
 		this.surname = surname;
-		
+		this.markArray = markArray;		
 		
 	}
+	
+    public String DisplayStudentData(){
+        return this.name + " " + this.surname + "has average mark  " + this. GetAverage();
+      }
+
 
 }
